@@ -143,13 +143,15 @@ footer { padding: 40px 0; }
 	width: 45%;
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 13px;
+	margin-top: 8px;
 }
 td {
 	padding: 2px;
 }
 td img {
-	border-style: groove;
+	border:3px; 
+	border-style:solid;
+	border-color: #fdc5c5;
 	height: 64px;
 }
 .key_1 {

@@ -127,8 +127,8 @@ $(function(){
 		        }
 	        });
 	        detail_html = '<div id="detail">'+
-	        					'<div class="car-image"><img src="'+ImageProxyUrl+'" style="margin:15px; width: 93%; border:2px; border-style:groove;">'+
-	        					'<div style="width:300px;padding-left:15px;padding-bottom:24px;"><p style="display:inline; line-height: 1.3; color:white; font-size:12px;"">'+note+'</p></div><button style="width:20px; height:20px;" onclick="javascript:test()">X</button>'+
+	        					'<div class="car-image"><img src="'+ImageProxyUrl+'" style="margin-top:10px; margin-bottom:30px;margin-left:10px;margin-right:10px; width: 95%; border:3px; border-style:solid;border-color: #fdc5c5">'+
+	        					'<div style="width:300px;padding-left:15px;padding-bottom:8px;"><p style="display:inline; line-height: 1.3; color:white; font-size:12px;"">'+note+'</p></div><button style="width:20px; height:20px;" onclick="javascript:test()">X</button>'+
 	        					'</div>'+
 	        					'<div class="car-desc">'+
 	        						'<table width="320px" height="128px"><tr>'+car_images_top+'</tr><tr>'+car_images_down+'</table>'+
