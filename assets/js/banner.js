@@ -117,9 +117,9 @@ $(function(){
 	        $.each(Images, function(index, item){
 	        	// console.log(item.ThumbnailImageUrl);
 	        	if(index<4){
-	        		car_images_top = car_images_top + '<td><img src="'+item.ThumbnailImageUrl+'"></td>';
+	        		car_images_top = car_images_top + '<td><img class="thumbnail" src="'+item.ThumbnailImageUrl+'"></td>';
 	        	}else{
-	        		car_images_down = car_images_down + '<td><img src="'+item.ThumbnailImageUrl+'"></td>';
+	        		car_images_down = car_images_down + '<td><img class="thumbnail" src="'+item.ThumbnailImageUrl+'"></td>';
 	        	}
 
 		        if(index==7){
@@ -127,7 +127,7 @@ $(function(){
 		        }
 	        });
 	        detail_html = '<div id="detail">'+
-	        					'<div class="car-image"><img src="'+ImageProxyUrl+'" style="margin-top:10px; margin-bottom:30px;margin-left:10px;margin-right:10px; width: 95%; border:3px; border-style:solid;border-color: #fdc5c5">'+
+	        					'<div class="car-image"><img id="main_image" src="'+ImageProxyUrl+'" style="margin-top:10px; margin-bottom:30px;margin-left:10px;margin-right:10px; width: 95%; border:3px; border-style:solid;border-color: #fdc5c5">'+
 	        					'<div style="width:300px;padding-left:15px;padding-bottom:8px;"><p style="display:inline; line-height: 1.3; color:white; font-size:12px;"">'+note+'</p></div><button style="width:20px; height:20px;" onclick="javascript:test()">X</button>'+
 	        					'</div>'+
 	        					'<div class="car-desc">'+
@@ -152,8 +152,13 @@ $(function(){
 	        // $("#container").html("");
 	      }
 	    });
-	    
+	    $(".thumbnail").bind('touchstart click', function(e){
+			let thumbnailImageUrl = $(this).attr('src');
+			
+			$("#main_image").attr("src", thumbnailImageUrl);
+		});
 	});
+
 });
 
 function test(){
@@ -161,6 +166,8 @@ function test(){
   $("#detail").remove();
   AdButlerIframeContentManager.triggerCloseEvent();
 }
+
+
 
 function send(){
     const script_url = "https://script.google.com/macros/s/AKfycbw6rEh_I8qB3SLMqLLA6x-TszEjd3geIFVEAlUPCno0iw2luLE/exec";
