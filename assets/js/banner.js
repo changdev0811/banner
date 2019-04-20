@@ -132,9 +132,9 @@ $(function(){
 	        					'</div>'+
 	        					'<div class="car-desc">'+
 	        						'<table width="320px" height="128px"><tr>'+car_images_top+'</tr><tr>'+car_images_down+'</table>'+
-	        						'<div style="text-align:center; margin-top:15px;margin-bottom: 10px;"><img src="assets/img/phone-icon_728x90_expand.png" style="vertical-align: sub;"><a href="tel:2154165584" style="color:white; font-weight:bold; font-size:20px;">215-416-5584</a></div>'+
+	        						'<div style="text-align:center; margin-top:15px;margin-bottom: 10px;"><img src="assets/img/phone-icon_728x90_expand.png" style="vertical-align: sub;"><a href="tel:2154165584" class="text_shadow" style="color: white; font-size:20px; font-weight:bold;">215-416-5584</a></div>'+
 	        						'<div style="text-align:center; margin-bottom:20px;"><img onclick="javascript: confirm();" class="inquire_btn" src="assets/img/button_728x90_expand.png" style="cursor:pointer;"></div>'+
-	        						'<div style="text-align:center;margin-bottom:25px;"><a target="_blank" href="https://www.worldautosalesneb.com/exclusive-offsite-vehicles.aspx?makeID='+_MakeId+'" class="value" style="font-weight: 400;"><h5 class="text_shadow">SEE SIMILAR VEHICLE</h5></a></div>'+
+	        						'<div style="text-align:center;margin-bottom:25px;"><a target="_blank" href="https://www.worldautosalesneb.com/exclusive-offsite-vehicles.aspx?makeID='+_MakeId+'" class="value" style="font-weight: 400;"><h5 style="color:yellow; text-decoration: underline">SEE SIMILAR VEHICLE</h5></a></div>'+
 	        						'<div>'+
 	        							'<table width="330px" height="100px"><tr><td class="key_1" colspan=4>'+_Year+' '+_Make+' '+_Model+' '+_Trim+'</td></tr>'+
 	        							'<tr><td class="key">Price:</td><td class="value">$'+_TopOffer+'</td><td class="key">Model:</td><td class="value">'+_Model+'</td></tr>'+

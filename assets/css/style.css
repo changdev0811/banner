@@ -8,7 +8,7 @@ a:hover, a:focus { color: #a365bc; border: 0; text-decoration: none; }
 
 h1, h2 { margin-top: 10px; font-size: 38px; font-weight: 300; color: #555; line-height: 50px; font-style: italic; }
 h3 { font-size: 22px; font-weight: 300; color: #555; line-height: 30px; font-style: italic; }
-h4 { font-size: 38px; font-weight: 300; }
+h4 { font-size: 38px; font-weight: 300; font-weight: bold; color: white;}
 h5 { font-size: 12px; font-weight: 300; }
 img { max-width: 100%; }
 
@@ -176,7 +176,7 @@ td img {
   box-shadow: 0 4px 8px 0 #D0CFCF, 0 6px 20px 0 #8B8989;
 }
 .text_shadow:hover {
-	text-shadow: 0 0 3px #FF0000;
+	text-shadow:5px 5px 10px black;
 }
 
 
