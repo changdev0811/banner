@@ -72,9 +72,19 @@ $(function(){
 	    }
 	});
 	$(".car-item").bind('touchstart click', function(e){
+
+		//modal 
+		const _html = '<p style="font-size: 18px; margin-bottom: 10px; text-align: center;line-height:20px;">No hassle inquiry. We will only contact you ONCE regarding this vehicle</p>'+
+      					'<form class="form-inline"><input id="email_phone" type="text" style="width:280px;" class="form-control" placeholder="email or phone">'+
+      					'<button type="button" class="btn btn-danger" style="background-color:red;" onclick="javascript: send();">Submit</button></form>';
+  		$(".modal-body").html(_html);
+
+  		//
+
 		let Id = $(this).data('id');
 		let ImageProxyUrl = $(this).attr('src');
 		$("#detail").slideDown("slow");
+		$("#detail").remove();
 		$.ajax({
 	      url: "https://customerapi.mydealeronline.com/inventories/inventory?inventoryID="+Id+"&token=jL4puHtBQLxCFt3mi5KO",
 	      dataType: "json",
@@ -82,7 +92,7 @@ $(function(){
 	      async: false,
 	      success: function(response){
 	        // console.log(response);
-	        // $("#inventoryID").val(response.Id);
+	        $("#inventoryID").val(response.Id);
 	        let _TopOffer = response.TopOffer;
 	        let _Year = response.Year;
 	        let _Make = response.Make;
@@ -106,39 +116,12 @@ $(function(){
 	        images_count = Images.length;
 	        $.each(Images, function(index, item){
 	        	// console.log(item.ThumbnailImageUrl);
-	        	
-	        	if (images_count==6){
-		        	if(index<3){
-		        		if(index==2){
-		        			car_images_top = car_images_top + '<div style="padding-top:15px;padding-right: 15px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}else{
-		        			car_images_top = car_images_top + '<div style="padding-top:15px;padding-right: 10px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}
-		        	}
-		        	else{
-		        		if(index==5){
-		        			car_images_down = car_images_down + '<div style="padding-top:15px;padding-right: 15px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}else{
-		        			car_images_down = car_images_down + '<div style="padding-top:15px;padding-right: 10px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}
-		        	}
-		        }else if(images_count>6){
-		        	if(index<4){
-		        		if(index==3){
-		        			car_images_top = car_images_top + '<div style="padding-top:15px;padding-right: 15px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}else{
-		        			car_images_top = car_images_top + '<div style="padding-top:15px;padding-right: 10px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}
-		        	}
-		        	else{
-		        		if(index==7){
-		        			car_images_down = car_images_down + '<div style="padding-top:15px;padding-right: 15px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}else{
-		        			car_images_down = car_images_down + '<div style="padding-top:15px;padding-right: 10px;"><img src="'+item.ThumbnailImageUrl+'" style="border:2px; border-style:groove;"></div>';
-		        		}
-		        	}
+	        	if(index<4){
+	        		car_images_top = car_images_top + '<td><img src="'+item.ThumbnailImageUrl+'"></td>';
+	        	}else{
+	        		car_images_down = car_images_down + '<td><img src="'+item.ThumbnailImageUrl+'"></td>';
+	        	}
 
-		        }
 		        if(index==7){
 		        	return false;
 		        }
@@ -148,11 +131,10 @@ $(function(){
 	        					'<div style="width:300px;padding-left:15px;padding-bottom:24px;"><p style="display:inline; line-height: 1.3; color:white; font-size:12px;"">'+note+'</p></div><button style="width:20px; height:20px;" onclick="javascript:test()">X</button>'+
 	        					'</div>'+
 	        					'<div class="car-desc">'+
-	        						'<div style="display:inline-flex;">'+car_images_top+'</div>'+
-	        						'<div style="display:inline-flex;">'+car_images_down+'</div>'+
+	        						'<table width="320px" height="128px"><tr>'+car_images_top+'</tr><tr>'+car_images_down+'</table>'+
 	        						'<div style="text-align:center; margin-top:15px;margin-bottom: 10px;"><img src="assets/img/phone-icon_728x90_expand.png" style="vertical-align: sub;"><a href="tel:2154165584" style="color:white; font-weight:bold; font-size:20px;">215-416-5584</a></div>'+
-	        						'<div style="text-align:center; margin-bottom:20px;"><img class="inquire_btn" src="assets/img/button_728x90_expand.png" style="cursor:pointer;"></div>'+
-	        						'<div style="text-align:center;margin-bottom:25px;"><a target="_blank" href="https://www.worldautosalesneb.com/exclusive-offsite-vehicles.aspx?makeID='+_MakeId+'" class="value" style="font-weight: 400;">SEE SIMILAR VEHICLE</a></div>'+
+	        						'<div style="text-align:center; margin-bottom:20px;"><img onclick="javascript: confirm();" class="inquire_btn" src="assets/img/button_728x90_expand.png" style="cursor:pointer;"></div>'+
+	        						'<div style="text-align:center;margin-bottom:25px;"><a target="_blank" href="https://www.worldautosalesneb.com/exclusive-offsite-vehicles.aspx?makeID='+_MakeId+'" class="value" style="font-weight: 400;"><h5 class="text_shadow">SEE SIMILAR VEHICLE</h5></a></div>'+
 	        						'<div>'+
 	        							'<table width="330px" height="100px"><tr><td class="key_1" colspan=4>'+_Year+' '+_Make+' '+_Model+' '+_Trim+'</td></tr>'+
 	        							'<tr><td class="key">Price:</td><td class="value">$'+_TopOffer+'</td><td class="key">Model:</td><td class="value">'+_Model+'</td></tr>'+
@@ -162,14 +144,15 @@ $(function(){
 	        						'</div>'+
 	        					'</div>'+
 	        				'</div>'
+	    		
+	    		$("body").append(detail_html);
 	      },
 	      error: function(data){
 	        alert("Error");
 	        // $("#container").html("");
 	      }
 	    });
-	    $("#detail").remove();
-	    $("body").append(detail_html);
+	    
 	});
 });
 
@@ -177,4 +160,51 @@ function test(){
   // $("#detail").slideUp("slow");
   $("#detail").remove();
   AdButlerIframeContentManager.triggerCloseEvent();
+}
+
+function send(){
+    const script_url = "https://script.google.com/macros/s/AKfycbw6rEh_I8qB3SLMqLLA6x-TszEjd3geIFVEAlUPCno0iw2luLE/exec";
+    let email_phone = $('#email_phone').val();
+    let inventoryID = $("#inventoryID").val();
+    let source = window.location.hostname;
+    const url = script_url + "?callback=ctrlq&email_phone=" + email_phone + "&inventoryID=" + inventoryID + "&source=" + source + "&action=insert";
+    $.ajax({
+      url: url,
+      dataType: "json",
+      method: "GET",
+      success: function(data){
+        if (data.result == "success"){
+          const message = "Thank you. We will contact you shortly";
+          $(".modal-body").html("<p style='font-size: 18px; margin-top: 43px;'>"+message+"</p>")
+        }
+        setTimeout(function(){ 
+          $("#myModal").css("display", "none");
+        }, 30000);
+      }
+    });
+    
+  }
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+function confirm(){
+	modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

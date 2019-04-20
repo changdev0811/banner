@@ -18,7 +18,7 @@
     </head>
 
     <body>
-    	<div style="width: 728px; height: 90px;">
+    	<div style="width: 728px; height: 90px; margin: auto;">
         	<div class="container-fluid" style="padding: 10px; height: 100%;">
         		<div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false" style="height: 100%;">
         			<div style="display: inline-flex;">
@@ -26,7 +26,7 @@
 					</div>
         			<div style="display: inline-block; vertical-align: top; margin-top: 27px;">
 	        			<a href="#carousel-example" role="button" data-slide="prev">
-							<img src="assets/img/arrow_right-728x90.png">
+							<img class="action_btn" src="assets/img/arrow_right-728x90.png">
 						</a>
 					</div>
         			<div class="carousel-inner row w-100" role="listbox" style="display: inline-block; width: 514px !important; height: 100%;margin: 0px;">
@@ -34,13 +34,25 @@
         			</div>
         			<div style="display: inline-block; vertical-align: top; margin-top: 27px;">
 						<a href="#carousel-example" role="button" data-slide="next">
-							<img src="assets/img/arrow-left_728x90.png">
+							<img class="action_btn" src="assets/img/arrow-left_728x90.png">
 						</a>
 					</div>
         		</div>
         	</div>
         </div>
-        
+        <input type="text" id="inventoryID" style="display: none;">
+        <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h4 class="title">Preferred contact method</h4>
+    </div>
+    <div class="modal-body">
+    </div>
+  </div>
+</div>
         <!-- Javascript -->
 		<script src="assets/js/jquery-3.3.1.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
