@@ -21,7 +21,7 @@ Attribution required
 
 @media (min-width: 576px) and (max-width: 768px) {
   /* Show 3rd slide on sm  if col-sm-6*/
-    .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner .active.col-sm-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
         right: -33.3333%;  /*change this with javascript in the future*/
@@ -32,6 +32,9 @@ Attribution required
 
 }
 @media (min-width: 576px) {
+     .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
 	
     .carousel-item {
         margin-right: 0;

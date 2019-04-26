@@ -47,7 +47,7 @@ $(function(){
 							'</div>';
     		if(IsCleanTitle == "True"){
     			if(i==1){
-    				content_html = content_html + '<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-4 active" style="height: 100%;padding: 0px;">'+
+    				content_html = content_html + '<div class="carousel-item col-12 col-sm-4 col-md-4 col-lg-4 active" style="height: 100%;padding: 0px;">'+
     						 '<div style="display: inline-block; height: 100%;">'+
     						 '<img src="'+ImageProxyUrl+'" class="car-item img-fluid mx-auto d-block" style="height: 100%; cursor:pointer;" data-id='+Id+'>'+
     						 '</div>'+
@@ -55,7 +55,7 @@ $(function(){
     						 '</div>'+
     						 '</div>';
 				}else{
-					content_html = content_html + '<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-4" style="height: 100%;padding: 0px;">'+
+					content_html = content_html + '<div class="carousel-item col-12 col-sm-4 col-md-4 col-lg-4" style="height: 100%;padding: 0px;">'+
 					 '<div style="display: inline-block; height: 100%;">'+
 					 '<img src="'+ImageProxyUrl+'" class="car-item img-fluid mx-auto d-block" style="height: 100%; cursor:pointer;" data-id='+Id+'>'+
 					 '</div>'+
